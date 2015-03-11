@@ -1,19 +1,19 @@
 
  <!DOCTYPE HTML>
-<html lang="zh-CN">
+<html >
 <head>
   <meta charset="UTF-8">
   
     <title>Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-    <meta name="author" content="fish">
+    <meta name="author" content="John Doe">
     
     
     <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://fitfish.github.io/">
+<meta property="og:url" content="http://yoursite.com/">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
 				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -63,8 +63,8 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:fitfish.github.io">
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
 					</li>
@@ -81,356 +81,14 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/03/08/浅谈原生ajax-实现无刷新传输数据/" title="浅谈原生ajax--实现无刷新传输数据" itemprop="url">浅谈原生ajax--实现无刷新传输数据</a>
+      <a href="/2015/03/08/hello-world/" title="Hello World" itemprop="url">Hello World</a>
   </h1>
   <p class="article-author">By
        
-		<a href="http://fitfish.github.io/about" title="fish" target="_blank" itemprop="author">fish</a>
+		<a href="http://yoursite.com/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
 		
   <p class="article-time">
-    <time datetime="2015-03-08T11:10:09.000Z" itemprop="datePublished"> 发表于 3月 8 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><code>HTML</code>提供<code>form</code>基本的表单功能，但缺点很明显，无法从后台得到数据，</p>
-<p>而今天我们谈到的<code>ajax</code>，其不仅可以向后台传输数据，还可以直接调用后台的数据，这样就达到了无刷新加载页面数据。</p>
-<h2 id="ajax提取数据">ajax提取数据</h2>
-<p>readyState返回请求状态<br>0.初始化    定义ajax对象<br>1.启动      调用open()方法<br>2.发送      调用send()方法<br>3.部分接收  接收到部分相应数据<br>4.完全接收  数据接收完成，并可以在客户端使用。</p>
-<h3 id="初始化">初始化</h3>
-<p>‘XMLHttpRequest’兼容非IE6，如需考虑兼容IE6，可以用<code>ActiveXObject</code>来做兼容。</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oAjax=<span class="keyword">new</span> XMLHttpRequest();</div></pre></td></tr></table></figure>
-
-<h3 id="启动和发送">启动和发送</h3>
-<p>向后台发送数据有2种方法<code>GET</code>和<code>POST</code>,大部分情况下使用的都是<code>GET</code>.<br>第三个参数<code>true</code>代表异步传输,<code>GET</code>写法如下:</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">oAjax.<span class="keyword">open</span>(<span class="string">'GET'</span>,url,true);</div><div class="line">oAjax.<span class="keyword">send</span>();</div></pre></td></tr></table></figure>
-
-<p><code>POST</code>提交时，需要设置<code>Content-Type</code>头部信息。</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oAjax.setRequestHeader(<span class="attribute">'Content</span>-<span class="keyword">Type</span>',<span class="attribute">'application</span>/x-www-form-urlencoded');</div></pre></td></tr></table></figure>
-
-<h3 id="接收">接收</h3>
-<p><code>oAjax.status</code>代表http 状态码</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(oAjax.<span class="variable">readyState=</span>=<span class="number">4</span>){	</div><div class="line">	<span class="keyword">if</span>(oAjax.status&gt;=<span class="number">200</span> && oAjax.status&lt;<span class="number">300</span> || oAjax.<span class="variable">status=</span>=<span class="number">304</span>){</div><div class="line">		<span class="keyword">if</span>(json.<span class="variable">dataType=</span>='xml'){</div><div class="line">			oAjax.responseText;	</div><div class="line">		}</div><div class="line">	}<span class="keyword">else</span>{</div><div class="line">		alert('请求未成功:'+ oAjax.status);		</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h2 id="定义一个ajax函数很简单，实际使用中，还有很多注意事项:">定义一个ajax函数很简单，实际使用中，还有很多注意事项:</h2>
-<ol>
-<li>缓存</li>
-<li>需要将字符串<code>json</code>转为json数据<h3 id="缓存">缓存</h3>
-有时候会发现，代码明明都对，但数据就是接受不到，这个时候很可能是因为缓存的原因。清空缓存有2大神奇。<br>1.<code>ctrl</code> + <code>F5</code> 强制刷新页面，或重启游览器。<br>2.在url后添加随机因子,如<code>Math.random()</code>和时间戳<h3 id="字符串json转json">字符串json转json</h3>
-eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。<br>一般写法</li>
-</ol>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> json = <span class="built_in">eval</span>(<span class="string">'('</span>+ <span class="built_in">string</span> +<span class="string">')'</span>);</div></pre></td></tr></table></figure>
-
-<p>加上圆括号的目的是迫使eval函数在处理JavaScript代码的时候强制将括号内的表达式（expression）转化为对象，而不是作为语句（statement）来执行<br>注意：eval使用比较危险，能不用最好就不要用，以免徒增不必要的麻烦。下面介绍另一种方法。</p>
-<h3 id="JSON-parse()">JSON.parse()</h3>
-<p>返回结果为对象或者数组，此方法与eval能达到相同的效果，简单易于使用，但此方法不支持IE6、IE7标准模式.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/ajax/">ajax</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/08/浅谈原生ajax-实现无刷新传输数据/" title="浅谈原生ajax--实现无刷新传输数据" itemprop="url">浅谈原生ajax--实现无刷新传输数据</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://fitfish.github.io/about" title="fish" target="_blank" itemprop="author">fish</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-08T11:10:09.000Z" itemprop="datePublished"> 发表于 3月 8 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><code>HTML</code>提供<code>form</code>基本的表单功能，但缺点很明显，无法从后台得到数据，</p>
-<p>而今天我们谈到的<code>ajax</code>，其不仅可以向后台传输数据，还可以直接调用后台的数据，这样就达到了无刷新加载页面数据。</p>
-<h2 id="ajax提取数据">ajax提取数据</h2>
-<p>readyState返回请求状态<br>0.初始化    定义ajax对象<br>1.启动      调用open()方法<br>2.发送      调用send()方法<br>3.部分接收  接收到部分相应数据<br>4.完全接收  数据接收完成，并可以在客户端使用。</p>
-<h3 id="初始化">初始化</h3>
-<p>‘XMLHttpRequest’兼容非IE6，如需考虑兼容IE6，可以用<code>ActiveXObject</code>来做兼容。</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oAjax=<span class="keyword">new</span> XMLHttpRequest();</div></pre></td></tr></table></figure>
-
-<h3 id="启动和发送">启动和发送</h3>
-<p>向后台发送数据有2种方法<code>GET</code>和<code>POST</code>,大部分情况下使用的都是<code>GET</code>.<br>第三个参数<code>true</code>代表异步传输,<code>GET</code>写法如下:</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">oAjax.<span class="keyword">open</span>(<span class="string">'GET'</span>,url,true);</div><div class="line">oAjax.<span class="keyword">send</span>();</div></pre></td></tr></table></figure>
-
-<p><code>POST</code>提交时，需要设置<code>Content-Type</code>头部信息。</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oAjax.setRequestHeader(<span class="attribute">'Content</span>-<span class="keyword">Type</span>',<span class="attribute">'application</span>/x-www-form-urlencoded');</div></pre></td></tr></table></figure>
-
-<h3 id="接收">接收</h3>
-<p><code>oAjax.status</code>代表http 状态码</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(oAjax.<span class="variable">readyState=</span>=<span class="number">4</span>){	</div><div class="line">	<span class="keyword">if</span>(oAjax.status&gt;=<span class="number">200</span> && oAjax.status&lt;<span class="number">300</span> || oAjax.<span class="variable">status=</span>=<span class="number">304</span>){</div><div class="line">		<span class="keyword">if</span>(json.<span class="variable">dataType=</span>='xml'){</div><div class="line">			oAjax.responseText;	</div><div class="line">		}</div><div class="line">	}<span class="keyword">else</span>{</div><div class="line">		alert('请求未成功:'+ oAjax.status);		</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h2 id="定义一个ajax函数很简单，实际使用中，还有很多注意事项:">定义一个ajax函数很简单，实际使用中，还有很多注意事项:</h2>
-<ol>
-<li>缓存</li>
-<li>需要将字符串<code>json</code>转为json数据<h3 id="缓存">缓存</h3>
-有时候会发现，代码明明都对，但数据就是接受不到，这个时候很可能是因为缓存的原因。清空缓存有2大神奇。<br>1.<code>ctrl</code> + <code>F5</code> 强制刷新页面，或重启游览器。<br>2.在url后添加随机因子,如<code>Math.random()</code>和时间戳<h3 id="字符串json转json">字符串json转json</h3>
-eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。<br>一般写法</li>
-</ol>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> json = <span class="built_in">eval</span>(<span class="string">'('</span>+ <span class="built_in">string</span> +<span class="string">')'</span>);</div></pre></td></tr></table></figure>
-
-<p>加上圆括号的目的是迫使eval函数在处理JavaScript代码的时候强制将括号内的表达式（expression）转化为对象，而不是作为语句（statement）来执行<br>注意：eval使用比较危险，能不用最好就不要用，以免徒增不必要的麻烦。下面介绍另一种方法。</p>
-<h3 id="JSON-parse()">JSON.parse()</h3>
-<p>返回结果为对象或者数组，此方法与eval能达到相同的效果，简单易于使用，但此方法不支持IE6、IE7标准模式.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/ajax/">ajax</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/08/浅谈原生ajax-实现无刷新传输数据/" title="浅谈原生ajax--实现无刷新传输数据" itemprop="url">浅谈原生ajax--实现无刷新传输数据</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://fitfish.github.io/about" title="fish" target="_blank" itemprop="author">fish</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-08T11:10:09.000Z" itemprop="datePublished"> 发表于 3月 8 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><code>HTML</code>提供<code>form</code>基本的表单功能，但缺点很明显，无法从后台得到数据，</p>
-<p>而今天我们谈到的<code>ajax</code>，其不仅可以向后台传输数据，还可以直接调用后台的数据，这样就达到了无刷新加载页面数据。</p>
-<h2 id="ajax提取数据">ajax提取数据</h2>
-<p>readyState返回请求状态<br>0.初始化    定义ajax对象<br>1.启动      调用open()方法<br>2.发送      调用send()方法<br>3.部分接收  接收到部分相应数据<br>4.完全接收  数据接收完成，并可以在客户端使用。</p>
-<h3 id="初始化">初始化</h3>
-<p>‘XMLHttpRequest’兼容非IE6，如需考虑兼容IE6，可以用<code>ActiveXObject</code>来做兼容。</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oAjax=<span class="keyword">new</span> XMLHttpRequest();</div></pre></td></tr></table></figure>
-
-<h3 id="启动和发送">启动和发送</h3>
-<p>向后台发送数据有2种方法<code>GET</code>和<code>POST</code>,大部分情况下使用的都是<code>GET</code>.<br>第三个参数<code>true</code>代表异步传输,<code>GET</code>写法如下:</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">oAjax.<span class="keyword">open</span>(<span class="string">'GET'</span>,url,true);</div><div class="line">oAjax.<span class="keyword">send</span>();</div></pre></td></tr></table></figure>
-
-<p><code>POST</code>提交时，需要设置<code>Content-Type</code>头部信息。</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oAjax.setRequestHeader(<span class="attribute">'Content</span>-<span class="keyword">Type</span>',<span class="attribute">'application</span>/x-www-form-urlencoded');</div></pre></td></tr></table></figure>
-
-<h3 id="接收">接收</h3>
-<p><code>oAjax.status</code>代表http 状态码</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(oAjax.<span class="variable">readyState=</span>=<span class="number">4</span>){	</div><div class="line">	<span class="keyword">if</span>(oAjax.status&gt;=<span class="number">200</span> && oAjax.status&lt;<span class="number">300</span> || oAjax.<span class="variable">status=</span>=<span class="number">304</span>){</div><div class="line">		<span class="keyword">if</span>(json.<span class="variable">dataType=</span>='xml'){</div><div class="line">			oAjax.responseText;	</div><div class="line">		}</div><div class="line">	}<span class="keyword">else</span>{</div><div class="line">		alert('请求未成功:'+ oAjax.status);		</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h2 id="定义一个ajax函数很简单，实际使用中，还有很多注意事项:">定义一个ajax函数很简单，实际使用中，还有很多注意事项:</h2>
-<ol>
-<li>缓存</li>
-<li>需要将字符串<code>json</code>转为json数据<h3 id="缓存">缓存</h3>
-有时候会发现，代码明明都对，但数据就是接受不到，这个时候很可能是因为缓存的原因。清空缓存有2大神奇。<br>1.<code>ctrl</code> + <code>F5</code> 强制刷新页面，或重启游览器。<br>2.在url后添加随机因子,如<code>Math.random()</code>和时间戳<h3 id="字符串json转json">字符串json转json</h3>
-eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码。<br>一般写法</li>
-</ol>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> json = <span class="built_in">eval</span>(<span class="string">'('</span>+ <span class="built_in">string</span> +<span class="string">')'</span>);</div></pre></td></tr></table></figure>
-
-<p>加上圆括号的目的是迫使eval函数在处理JavaScript代码的时候强制将括号内的表达式（expression）转化为对象，而不是作为语句（statement）来执行<br>注意：eval使用比较危险，能不用最好就不要用，以免徒增不必要的麻烦。下面介绍另一种方法。</p>
-<h3 id="JSON-parse()">JSON.parse()</h3>
-<p>返回结果为对象或者数组，此方法与eval能达到相同的效果，简单易于使用，但此方法不支持IE6、IE7标准模式.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/ajax/">ajax</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/08/浅谈原生ajax-实现无刷新传输数据/" title="浅谈原生ajax--实现无刷新传输数据" itemprop="url">浅谈原生ajax--实现无刷新传输数据</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://fitfish.github.io/about" title="fish" target="_blank" itemprop="author">fish</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-08T11:10:09.000Z" itemprop="datePublished"> 发表于 3月 8 2015</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p><code>HTML</code>提供<code>form</code>基本的表单功能，但缺点很明显，无法从后台得到数据，</p>
-<p>而今天我们谈到的<code>ajax</code>，其不仅可以向后台传输数据，还可以直接调用后台的数据，这样就达到了无刷新加载页面数据。</p>
-<h2 id="ajax提取数据">ajax提取数据</h2>
-<p>readyState返回请求状态<br>0.初始化    定义ajax对象<br>1.启动      调用open()方法<br>2.发送      调用send()方法<br>3.部分接收  接收到部分相应数据<br>4.完全接收  数据接收完成，并可以在客户端使用。</p>
-<h3 id="初始化">初始化</h3>
-<p>‘XMLHttpRequest’兼容非IE6，如需考虑兼容IE6，可以用<code>ActiveXObject</code>来做兼容。</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oAjax=<span class="keyword">new</span> XMLHttpRequest();</div></pre></td></tr></table></figure>
-
-<h3 id="启动和发送">启动和发送</h3>
-<p>向后台发送数据有2种方法<code>GET</code>和<code>POST</code>,大部分情况下使用的都是<code>GET</code>.<br>第三个参数<code>true</code>代表异步传输,<code>GET</code>写法如下:</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">oAjax.<span class="keyword">open</span>(<span class="string">'GET'</span>,url,true);</div><div class="line">oAjax.<span class="keyword">send</span>();</div></pre></td></tr></table></figure>
-
-<p><code>POST</code>提交时，需要设置<code>Content-Type</code>头部信息。</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oAjax.setRequestHeader(<span class="attribute">'Content</span>-<span class="keyword">Type</span>',<span class="attribute">'application</span>/x-www-form-urlencoded');</div></pre></td></tr></table></figure>
-
-<h3 id="接收">接收</h3>
-<p><code>oAjax.status</code>为http状态码</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(oAjax.<span class="variable">readyState=</span>=<span class="number">4</span>){	</div><div class="line">	<span class="keyword">if</span>(oAjax.status&gt;=<span class="number">200</span> && oAjax.status&lt;<span class="number">300</span> || oAjax.<span class="variable">status=</span>=<span class="number">304</span>){</div><div class="line">		<span class="keyword">if</span>(json.<span class="variable">dataType=</span>='xml'){</div><div class="line">			oAjax.responseText;	</div><div class="line">		}</div><div class="line">	}<span class="keyword">else</span>{</div><div class="line">		alert('请求未成功:'+ oAjax.status);		</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
-
-<h2 id="定义一个ajax函数很简单，实际使用中，还有很多注意事项:">定义一个ajax函数很简单，实际使用中，还有很多注意事项:</h2>
-<ol>
-<li>缓存</li>
-<li>需要将<code>json</code>字符串转为<code>json</code>数据</li>
-</ol>
-<h3 id="缓存">缓存</h3>
-<p>有时候会发现，代码明明都对，但数据就是接受不到，这个时候很可能是因为缓存的原因。清空缓存有2大神奇。<br>1.<code>ctrl</code> + <code>F5</code> 强制刷新页面，或重启游览器。<br>2.在url后添加随机因子,如<code>Math.random()</code>和时间戳</p>
-<h3 id="json字符串转json">json字符串转json</h3>
-<p><code>eval()</code> 函数可计算某个字符串，并执行其中的的<code>JavaScript</code>代码。<br>一般写法</p>
-<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> json = <span class="built_in">eval</span>(<span class="string">'('</span>+ <span class="built_in">string</span> +<span class="string">')'</span>);</div></pre></td></tr></table></figure>
-
-<p>加上圆括号的目的是迫使<code>eval</code>函数在处理<code>JavaScript</code>代码的时候强制将括号内的表达式（expression）转化为对象，而不是作为语句（statement）来执行<br>注意：<code>eval()</code>使用比较危险，能不用最好就不要用，以免徒增不必要的麻烦。下面介绍另一种方法。</p>
-<h3 id="JSON-parse()">JSON.parse()</h3>
-<p>返回结果为对象或者数组，此方法与<code>eval()</code>能达到相同的效果，简单易于使用，但此方法不支持IE6、IE7标准模式.</p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/ajax/">ajax</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/03/04/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="http://fitfish.github.io/about" title="fish" target="_blank" itemprop="author">fish</a>
-		
-  <p class="article-time">
-    <time datetime="2015-03-04T14:39:02.035Z" itemprop="datePublished"> 发表于 3月 4 2015</time>
+    <time datetime="2015-03-08T14:49:06.052Z" itemprop="datePublished"> Published Mar 8 2015</time>
     
   </p>
 </header>
@@ -490,14 +148,95 @@ eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码�
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/03/02/常用元素视图相关属性/" title="常用元素视图相关属性" itemprop="url">常用元素视图相关属性</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="http://yoursite.com/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
+		
+  <p class="article-time">
+    <time datetime="2015-03-02T03:22:47.000Z" itemprop="datePublished"> Published Mar 2 2015</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>本文节选了一些常用的、兼容性好的关于元素大小、位置等信息的属性</p>
+<h3 id="1-clientWidth和clientHeight">1.clientWidth和clientHeight</h3>
+<p>表示内容区域的高度和宽度，包括<code>padding</code>大小，但是不包括边框和滚动条。<br>常用来获取可视区的宽高。<br>游览器兼容性: 全</p>
+<h3 id="2-clientLeft和clientTop">2.clientLeft和clientTop</h3>
+<p>表示内容区域的左上角相对于整个元素左上角的位置（包括边框）。<br>游览器兼容性: 全</p>
+<h3 id="3-offsetWidth和offsetHeight">3.offsetWidth和offsetHeight</h3>
+<p>整个元素的尺寸（包括边框)。<br>游览器兼容性: 全</p>
+<h3 id="4-offsetLeft和offsetTop">4.offsetLeft和offsetTop</h3>
+<p>表示相对于最近的祖先定位元素（CSS <code>position</code> 属性被设置为 <code>relative</code>、<code>absolute</code> 或 <code>fixed</code> 的元素）的偏移值。<br>游览器兼容性: 全</p>
+<p><code>demo</code><a href="http://www.baidu.com/" target="_blank" rel="external">client和offset</a></p>
+<p><img src="http://fitfish.github.io/public/img/blog/offset.png" alt="alt offset"></p>
+<h3 id="5-scrollLeft和scrollTop">5.scrollLeft和scrollTop</h3>
+<p>表示元素滚动的像素大小。可读可写。<br>但要注意，对于页面滚动高度来说，chorme监听的是<code>body</code>的滚动高度，非chrome游览器监听的是<code>html</code>的高度。<br>获取页面滚动高度的写法为：</p>
+<figure class="highlight {javascript}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.scrollTop || <span class="built_in">document</span>.documentElement.srollTop</div></pre></td></tr></table></figure>
+
+<p>游览器兼容性: 全</p>
+<h3 id="6-scrollWidth和scrollHeight">6.scrollWidth和scrollHeight</h3>
+<p>表示整个内容区域的宽高，包括隐藏的部分。如果元素没有隐藏的部分，则相关的值应该等用于<code>clientWidth</code>和<code>clientHeight</code>。当你向下滚动滚动条的时候，<code>scrollHeight</code>应该等用于<code>scrollTop</code> + <code>clientHeight</code>。</p>
+<p><code>demo</code><a href="http://www.baidu.com/" target="_blank" rel="external">scroll</a></p>
+<p> <img src="http://fitfish.github.io/public/img/blog/scroll.png" alt="alt scroll"></p>
+<h3 id="7-鼠标clientX,clientY">7.鼠标clientX,clientY</h3>
+<p>相对于window，为鼠标相对于window的偏移</p>
+<p>兼容性：全</p>
+<h3 id="8-鼠标pageX,pageY">8.鼠标pageX,pageY</h3>
+<p>鼠标相对于document的位移</p>
+<p>游览器兼容性: IE9+</p>
+<p><code>demo</code><a href="http://www.baidu.com/" target="_blank" rel="external">鼠标位置</a></p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/元素视图/">元素视图</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/03/02/My-New-Post/" title="My New Post" itemprop="url">My New Post</a>
   </h1>
   <p class="article-author">By
        
-		<a href="http://fitfish.github.io/about" title="fish" target="_blank" itemprop="author">fish</a>
+		<a href="http://yoursite.com/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
 		
   <p class="article-time">
-    <time datetime="2015-03-02T03:22:47.000Z" itemprop="datePublished"> 发表于 3月 2 2015</time>
+    <time datetime="2015-03-02T03:22:47.000Z" itemprop="datePublished"> Published Mar 2 2015</time>
     
   </p>
 </header>
@@ -567,20 +306,20 @@ eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码�
 
 
 </div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 
   
 <div class="tagslist">
-	<p class="asidetitle">标签</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/ajax/" title="ajax">ajax<sup>4</sup></a></li>
+			<li><a href="/tags/元素视图/" title="元素视图">元素视图<sup>1</sup></a></li>
 		
 			<li><a href="/tags/元素视图-client-offset-scroll-page/" title="元素视图 client offset scroll page">元素视图 client offset scroll page<sup>1</sup></a></li>
 		
@@ -589,7 +328,7 @@ eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码�
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -611,7 +350,7 @@ eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码�
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
 </aside>
@@ -644,7 +383,7 @@ eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码�
 	</div>
 		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
 		
-		<a href="http://fitfish.github.io/about" target="_blank" title="fish">fish</a>
+		<a href="http://yoursite.com/about" target="_blank" title="John Doe">John Doe</a>
 		
 		</p>
 </div>
@@ -720,7 +459,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
