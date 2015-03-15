@@ -1,0 +1,12 @@
+.myifo{ position: absolute; background: #ccc;width: 320px; height: 568px; }
+.mytop {  height: 100px;}
+.photo { margin: 0 auto; width: 120px; height: 120px;   }
+.photo img{position: absolute; width: 120px; height: 120px;border-radius: 50%;}
+.ifo {margin: 0 auto; width: 200px; text-align: center; font-size: 14px; }
+.ifo p { height: 30px; line-height: 30px;}
+@-webkit-keyframes changecolor{
+	0%{opacity: 0; }
+	50%{opacity: 1;}
+	100%{opacity: 0;}
+}
+.js-close { -webkit-animation: changecolor 3s linear infinite;}

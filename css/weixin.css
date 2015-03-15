@@ -1,0 +1,15 @@
+/*----加我好友----*/
+.appbox .myifo{ position: absolute; background: #ccc;width: 320px; height: 568px; text-align: center;}
+.appbox .mytop { height: 50px; display: inline-block; 	}
+.appbox .weixin{ background: #ccc;width: 320px; height: 568px; }
+.appbox .photo img { border-radius: 0; }
+.appbox .erweima {margin: 0 auto; width: 120px; height: 120px; }
+.appbox .erweima img{position: absolute; width: 120px; height: 120px; }
+.appbox .phone { margin: 0 auto; width: 200px; height: 30px; line-height: 30px; text-align: center; font-size: 14px; }
+.appbox .ifo p{ height: 30px; line-height: 30px; font-size: 14px;}
+@-webkit-keyframes changecolor{
+	0%{opacity: 0; }
+	50%{opacity: 1;}
+	100%{opacity: 0;}
+}
+.js-close { -webkit-animation: changecolor 3s linear infinite;}

@@ -1,0 +1,13 @@
+<div class="myifo" id="myifo">
+    <div class="mytop"></div>
+    <div class="photo"><img id="myphoto" src="img/photo.jpg" alt=""></div>
+    <div class="ifo">
+        <br>
+        <p>蒋宏伟</p>
+        <p>前端工程师</p>
+        <p>正在努力寻找工作中</p>
+        <p>热爱前端，可手写代码</p>
+        <p>有着良好的团队合作意识</p>
+    </div>
+    <div class="js-close" style="width: 50px; height: 50px; margin: 20px auto; border-radius: 50%; background: #0ac;"></div> 
+</div>

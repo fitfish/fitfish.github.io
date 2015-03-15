@@ -1,0 +1,12 @@
+<div class="myifo" id="weixinbox">
+    <div class="mytop"></div>
+    <div class="photo"><img src="img/weixin.png" alt=""></div>
+    <div class="ifo">
+        <br>
+        <p>微信号: Memevolution</p>
+        <br>
+        <p>手机号: 18668635285</p>
+        <p>邮箱: fitsfish@163.com</p>
+    </div>
+    <div class="js-close" style="width: 50px; height: 50px; margin: 20px auto; border-radius: 50%; background: #0ac;"></div> 
+</div>
