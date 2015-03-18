@@ -1,4 +1,4 @@
 <div id="box" class="box viewport-flip" title="点击翻面">
-    <a href="javascript:;" class="list flip out"><img src="../img/iphone-front.png" alt="纸牌正面" /></a>
-    <a href="javascript:;" class="list flip"><img src="../img/iphone-back.png" alt="纸牌背面" /></a>
+    <a href="javascript:;" class="list flip out"><img src="../img/iphone_front.png" alt="纸牌正面" /></a>
+    <a href="javascript:;" class="list flip"><img src="../img/iphone_back.png" alt="纸牌背面" /></a>
 </div>
