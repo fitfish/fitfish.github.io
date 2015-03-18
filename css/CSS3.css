@@ -1,86 +1,72 @@
-/*--- tmail ---*/
-.tmail { background: #ccc; }
+.appbox .box {
+    width: 355px;
+    height: 500px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.appbox .list {
+    position: absolute;
+}.appbox 
 
-.tmail header {width:320px; margin:0 auto;}
-.tmail .slider {width:320px; height:150px; position:relative; overflow:hidden;}
-.tmail .slider ul { position: absolute; width:99999px; -webkit-transition:0.7s all ease;}
-.tmail .slider ul li {width:320px; height:150px; float:left;}
-.tmail .slider ul li img {width:100%; height:100%;}
-.tmail .slider ol {width:100%; height:3px; position:absolute; bottom:0; left:0;}
-.tmail .slider ol li {width:12.5%; height:100%; background:rgba(51,51,51,0.5); float:left; float:left;}
-.tmail .slider ol li.active {background:#B20000;}
+.viewport-flip {
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    position: absolute;
+}
+.appbox .flip {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateX(0); /* Needed to work around an iOS 3.1 bug that causes listview thumbs to disappear when -webkit-visibility:hidden is used. */
+    backface-visibility: hidden;
+    transform: translateX(0);
+}
+.appbox .flip.out {
+    -webkit-transform: rotateY(-90deg) scale(.9);
+    -webkit-animation-name: flipouttoleft;
+    -webkit-animation-duration: 175ms;
+    transform: rotateY(-90deg) scale(.9);
+    animation-name: flipouttoleft;
+    animation-duration: 175ms;
+}
+.appbox .flip.in {
+    -webkit-animation-name: flipintoright;
+    -webkit-animation-duration: 225ms;
+    animation-name: flipintoright;
+    animation-duration: 225ms;
+}
 
-.tmail header h1 {text-align:center; padding:20px 0 18px;}
-.tmail header h1 img {height:21px; width:144px;}
+@-webkit-keyframes flipouttoleft {
+    from { -webkit-transform: rotateY(0); }
+    to { -webkit-transform: rotateY(-90deg) scale(.9); }
+}
 
-.tmail header .search_btn {width:293px; height:38px; background:url(../img/search_btn.png); display:block; margin-left:10px; text-indent:-9999px;}
-
-.tmail nav {margin-left:-4px; margin-right:-3px; margin-top:23px;}
-.tmail nav a, nav .spliter {float:left;}
-.tmail nav a {width:81px; height:56px; text-align:center; position:relative; margin-bottom:25px;}
-.tmail nav a img {height:29px;}
-.tmail nav a span {position:absolute; left:0; bottom:0; text-align:center; width:100%; color:#666;}
-.tmail nav .spliter {width:0; border-right:1px solid #D7D7D7; height:32px; margin-top:3px;}
- 
-/*内容部分*/
-.tmail  section {margin-left: auto; margin-right: auto ; width:300px;}
- 
-.tmail .take_look {height:85px; background:white; position:relative;}
-.tmail .take_look h2 {padding:4px 0 9px 2px; font-family:宋体; color:#333;}
-.tmail .take_look h2 span {color:#A1A1A1;}
- 
-.tmail .take_look .img, .take_look .desc {float:left;}
-.tmail .take_look .img {padding-left:9px;}
-.tmail .take_look .img img {width:60px; height:60px;}
- 
-.tmail .take_look .desc {line-height:20px; border-left:1px solid #D1D1D1; height:60px; color:#8D8D8D; padding-left:10px;}
-.tmail .take_look .desc em {color:#F00;}
- 
-.tmail .take_look .more {position:absolute; top:39px; right:12px; padding-right:12px; background:url(../img/take_look_right.png) no-repeat right; color:#8D8D8D;}
-
- 
-.tmail .hot {border:1px solid #DEDEDE; margin-top:10px; border-right:none; border-bottom:none; width:300px;}
-.tmail .hot li {float:left; border:1px solid #DEDEDE; border-left:none; border-top:none; padding-top:10px; padding-left:5px; width:144px; height:82px; background:white; line-height:18px;}
-.tmail .hot h3, .hot p {line-height:18px; float:left; margin-left:5px; width:87px;}
-.tmail .hot h3 {margin-top:10px;}
-.tmail .hot p {color:#B3B3B3;}
-.tmail .hot img {width:52px; height:66px; float:left;}
- 
-.tmail .item {margin-top:30px;}
-.tmail .item .big {float:left; width:180px; height:150px;}
-.tmail .item .big_div {overflow:hidden; margin-bottom:10px;}
-.tmail .item .big_div a {float:left; height:74px; float:left; width:119px; border-left:1px solid #DEDEDE; position:relative; border-bottom:1px solid #DEDEDE; background:white;}
-.tmail .item .big_div a.down {border-bottom:1px solid white;}
-.tmail .item .big_div a img {height:74px; position:absolute; right:0; top:0; z-index:1;}
-.tmail .item .big_div a span {position:absolute; z-index:2; color:#373737; left:7px; top:20px;}
-.tmail .item .link a {margin-top:5px; float:left; padding:8px 12px 10px 12px; background:white; margin-right:4px; box-shadow:1px 1px 2px #DDD; color:#373737;}
-.tmail .item .link a.active {background:#F00; color:#FFF; box-shadow:none;}
- 
- /*底部*/
-.tmail footer {margin:20px auto 0; width:320px; text-align:center;}
- 
-.tmail footer img {width:300px; height:75px;}
- 
-.tmail .user {margin-top:4px; padding:4px 10px; border-top:1px solid #E3E3E3; border-bottom:1px solid #E3E3E3;}
-.tmail .user a {float:left; margin-right:12px; margin-top:10px; color:#047;}
-.tmail .user input {float:right; width:72px; height:32px; background:url(../img/footer_btn_to_top.png); border:none; padding:0; text-indent:-9999em;}
- 
-.tmail .copyright {margin-top:18px;}
-.tmail .copyright a {color:#666;}
-.tmail .copyright strong {display:block; margin-top:14px; color:#666;}
- 
- /*搜索框*/
-.tmail #search_dialog {width:320px; position:fixed; top:0; left:50%; margin-left:-160px; display:none;}
-.tmail #search_dialog a {text-indent:-9999em;}
- 
-.tmail #search_dialog h2,.tmail .headclose  {height:38px; background:url(../img/search_dialog_head_bg.png) repeat-x; position:relative;}
-.tmail #search_dialog h2 .close,.tmail .headclose  a {width:34px; height:38px; background:url(../img/search_dialog_close.png) no-repeat; position:absolute; right:0; top:0;}
- 
-.tmail #search_dialog .search {height:40px; background:#DDD; border-bottom:1px solid #CCC; padding-top:10px;}
-.tmail #search_dialog .search span {width:280px; height:30px; position:relative; margin-left:20px; display:block;}
-.tmail #search_dialog .search input {width:212px; height:30px; background:url(../img/search_dialog_input_bg.png) no-repeat; border:none; padding:0; outline:none; padding:0 16px;}
-.tmail #search_dialog .search .del {width:20px; height:20px; position:absolute; left:212px; top:5px; background:url(../img/search_dialog_del.png) no-repeat;}
-.tmail #search_dialog .search .btn {width:36px; height:30px; background:url(../img/search_dialog_search.png) no-repeat; position:absolute; right:0; top:0;}
- 
-.tmail #search_dialog ul {width:100%;}
-.tmail #search_dialog ul li {height:38px; line-height:38px; width:290px; background:url(../img/search_li_bg.png) repeat-x; padding-left:30px;}
+@keyframes flipouttoleft {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(-90deg) scale(.9); }
+}
+@-webkit-keyframes flipouttoright {
+    from { -webkit-transform: rotateY(0) ; }
+    to { -webkit-transform: rotateY(90deg) scale(.9); }
+}
+@keyframes flipouttoright {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(90deg) scale(.9); }
+}
+@-webkit-keyframes flipintoleft {
+    from { -webkit-transform: rotateY(-90deg) scale(.9); }
+    to { -webkit-transform: rotateY(0); }
+}
+@keyframes flipintoleft {
+    from { transform: rotateY(-90deg) scale(.9); }
+    to { transform: rotateY(0); }
+}
+@-webkit-keyframes flipintoright {
+    from { -webkit-transform: rotateY(90deg) scale(.9); }
+    to { -webkit-transform: rotateY(0); }
+}
+@keyframes flipintoright {
+    from { transform: rotateY(90deg) scale(.9); }
+    to { transform: rotateY(0); }
+}
