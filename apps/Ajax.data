@@ -1,59 +1,51 @@
-    <div class="contact">
-        <div class="mask"><span>loding...</span></div>
-        <div class="login">
-            <div class="bar">
-                <div class="container">
-                    <span class="back iconfont">&#xe605;</span>
-                    <span class="diff">|</span>
-                    <span class="msg">登入or注册</span>
-                </div>
-            </div>
-            <div class="loginbox container">
-                <div class="photo"></div>
-                <div class="user">
-                    <div class="name">
-                        <p>
-                            <span>账&nbsp;&nbsp;号</span>
-                            <input type="text" placeholder="账号">
-                        </p>
-                        <p class="btmline"></p>
-                    </div>
-                    <div class="password">
-                        <p>
-                            <span>密&nbsp;&nbsp;码</span>
-                            <input type="password" placeholder="密码">
-                        </p>
-                        <p class="btmline"></p>
-                    </div>
-                </div>
-                <div class="login-btn submit">登入</div>
-                <div class="register-btn submit">注册</div>
+<div class="contact">
+    <div class="mask"><span>loding...</span></div>
+    <div class="login">
+        <div class="bar">
+            <div class="container">
+                <span class="back iconfont js-close">&#xe605;</span>
+                <span class="diff">|</span>
+                <span class="msg">登入or注册</span>
             </div>
         </div>
-        <div class="chat">
-            <div class="bar">
-                <div class="container">
-                    <span class="back iconfont">&#xe605;</span>
-                    <span class="diff">|</span>
-                    <span class="msg">聊天室</span>
+        <div class="loginbox container">
+            <div class="photo"></div>
+            <div class="user">
+                <div class="name">
+                    <p>
+                        <span>账&nbsp;&nbsp;号</span>
+                        <input type="text" placeholder="账号">
+                    </p>
+                    <p class="btmline"></p>
+                </div>
+                <div class="password">
+                    <p>
+                        <span>密&nbsp;&nbsp;码</span>
+                        <input type="password" placeholder="密码">
+                    </p>
+                    <p class="btmline"></p>
                 </div>
             </div>
-            <div class="chatbox">
-                <div id="message" class="wraper">
-<!--                    <div class="msgbox clearfix">
-                        <div class="face"><img src="face/1.jpg" alt=""></div>
-                        <div class="user">
-                            <p class="username">name</p>
-                            <p class="usermsg"><span>asdf asdf</span></p>
-                        </div>
-                    </div>
- -->                </div>
+            <div class="login-btn submit">登入</div>
+            <div class="register-btn submit">注册</div>
+        </div>
+    </div>
+    <div class="chat">
+        <div class="bar">
+            <div class="container">
+                <span class="back iconfont">&#xe605;</span>
+                <span class="diff">|</span>
+                <span class="msg">聊天室</span>
             </div>
-            <div class="sendbox">
-                <div class="wraper">
-                    <p><input type="text"></p>
-                    <p class="msgbtn">发送</p>
-                </div>
+        </div>
+        <div class="chatbox">
+            <div id="message" class="wraper"></div>
+        </div>
+        <div class="sendbox">
+            <div class="wraper">
+                <p><input type="text"></p>
+                <p class="msgbtn">发送</p>
             </div>
         </div>
     </div>
+</div>
