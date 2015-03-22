@@ -173,6 +173,13 @@ Zepto(function($){
 	(function(){
 		var oMssage = document.getElementById('message');
 
+		//背景
+		if(/iphone|ipad|ipod/i.test(navigator.userAgent)) 
+		{ 
+		     $(".contact .bar").css("position", "static"); 
+		     $(".contact .chat .sendbox").css("position", "static"); 
+		};
+
 		//设置切换到底部
 		function scollBtm(){
 			var height = $('#message').height();
@@ -318,7 +325,7 @@ Zepto(function($){
 							}
 							$('#message').append(
 								'<div class="msgbox clearfix '+selfName+'">'+
-									'<div class="face"><img src="face/'+this.face +'.jpg" alt=""></div>' +
+									'<div class="face"><img src="img/face/'+this.face +'.jpg" alt=""></div>' +
 									'<div class="user">' +
 										'<p class="username">'+this.username+'</p>' +
 										'<p class="usermsg"><span>'+this.content+'</span></p>' +
@@ -364,7 +371,7 @@ Zepto(function($){
 							}
 							$('#message').append(
 								'<div class="msgbox clearfix '+selfName+'">'+
-									'<div class="face"><img src="face/'+this.face +'.jpg" alt=""></div>' +
+									'<div class="face"><img src="img/face/'+this.face +'.jpg" alt=""></div>' +
 									'<div class="user">' +
 										'<p class="username">'+this.username+'</p>' +
 										'<p class="usermsg"><span>'+this.content+'</span></p>' +
