@@ -15,4 +15,10 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-xiangshangshouqi:before { content: "\e617"; }
+.icon-xiazai:before { content: "\e600"; }
+.icon-xiaohuojian:before { content: "\e601"; }
+.icon-shuaxin:before { content: "\e602"; }
+.icon-shuaxin1:before { content: "\e603"; }
+.icon-arrow-back:before { content: "\e605"; }
+.icon-duorentonghua:before { content: "\e606"; }
+.icon-xiazai1:before { content: "\e604"; }
