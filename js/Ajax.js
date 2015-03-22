@@ -174,11 +174,6 @@ Zepto(function($){
 		var oMssage = document.getElementById('message');
 
 		//背景
-		if(/iphone|ipad|ipod/i.test(navigator.userAgent)) 
-		{ 
-		     $(".contact .bar").css("position", "static"); 
-		     $(".contact .chat .sendbox").css("position", "static"); 
-		};
 
 		//设置切换到底部
 		function scollBtm(){
