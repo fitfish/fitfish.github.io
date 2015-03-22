@@ -72,14 +72,14 @@ section:after,
 #content {
 	position: relative;
 }
-.canvas .top { height: 50px;}
-.canvas .bottom { position: absolute; bottom: 0; left: 0; width: 100%; height: 96px;}
-.canvas .icon { position: absolute;  border-radius: 20%; background-size: cover; z-index: 2; -webkit-transform: scale(1);  -webkit-transition: -webkit-transform  0.5s ease; }
-.canvas .name { position: absolute;bottom: -24px;left: -15px;width: 80px;height: 20px;color: #fff;line-height: 20px;text-shadow: 1px 1px 2px #666;text-align: center;}
-.canvas .dotted { display: none; position: absolute;-webkit-transition: opacity  0.5s ease; border-radius: 20%; width: 50px; height: 50px; border: 2px solid #ccc; box-shadow: 0px 0px 2px; }
+.main .top { height: 50px;}
+.main .bottom { position: absolute; bottom: 0; left: 0; width: 100%; height: 96px;}
+.main .icon { position: absolute;  border-radius: 20%; background-size: cover; z-index: 2; -webkit-transform: scale(1);  -webkit-transition: -webkit-transform  0.5s ease; }
+.main .name { position: absolute;bottom: -24px;left: -15px;width: 80px;height: 20px;color: #fff;line-height: 20px;text-shadow: 1px 1px 2px #666;text-align: center;}
+.main .dotted { display: none; position: absolute;-webkit-transition: opacity  0.5s ease; border-radius: 20%; width: 50px; height: 50px; border: 2px solid #ccc; box-shadow: 0px 0px 2px; }
 
 /*------appbox---------*/
-.canvas .appbox { display: none; position: absolute; z-index: 99999; overflow: auto;width: 100%; height: 100%;background: #ccc;opacity: 0;-webkit-transform:scale(0.5); -webkit-transition: opacity  0.5s ease,-webkit-transform  0.5s ease; }
+.appbox { display: none; position: absolute; z-index: 99999; overflow: auto;width: 100%; height: 100%;background: #ccc;opacity: 0;-webkit-transform:scale(0.5); -webkit-transition: opacity  0.5s ease,-webkit-transform  0.5s ease; }
 
 
 
@@ -88,16 +88,16 @@ section:after,
 
 /*--- switch---*/
 
-.canvas .switch {  position: absolute; height: 100% ; background: #ccc;  opacity: 0;-webkit-transform: scale(0); -webkit-transition: opacity  0.5s ease,-webkit-transform 0.5s ease;}
-.canvas .switch .header { height: 20px; background: #ccc;}
-.canvas .switch .box {  position: relative; margin: 100px auto; width: 320px; height: 217px; overflow: hidden;}
-.canvas .switch .box ul { position: absolute; -webkit-transform: translateX(0); -webkit-transition:  -webkit-transform  0.5s ease; width: 1280px; height: 217px; }
-.canvas .switch .box ul li { width: 320px; float: left;}
-.canvas .switch .box ul li img { width: 320px; }
-.canvas .switch .box ol { position: absolute; bottom: 5px; right: 10px; width: 80px; height: 10px;}
-.canvas .switch .box ol li { float: left;  margin: 0 5px; width: 8px; height: 8px;border-radius: 50%; background: transparent; border: 1px solid #0ac;}
-.canvas .switch .box ol .active { background: #0ca;}
-.canvas .switch .close { margin: 0 auto; width: 50px; height: 50px; line-height: 50px; background: #0ac; border-radius: 50%; font-size: 20px; text-align: center; color: #fff; font-weight: bold;}
+.switch {  position: absolute; height: 100% ; background: #ccc;  opacity: 0;-webkit-transform: scale(0); -webkit-transition: opacity  0.5s ease,-webkit-transform 0.5s ease;}
+.switch .header { height: 20px; background: #ccc;}
+.switch .box {  position: relative; margin: 100px auto; width: 320px; height: 217px; overflow: hidden;}
+.switch .box ul { position: absolute; -webkit-transform: translateX(0); -webkit-transition:  -webkit-transform  0.5s ease; width: 1280px; height: 217px; }
+.switch .box ul li { width: 320px; float: left;}
+.switch .box ul li img { width: 320px; }
+.switch .box ol { position: absolute; bottom: 5px; right: 10px; width: 80px; height: 10px;}
+.switch .box ol li { float: left;  margin: 0 5px; width: 8px; height: 8px;border-radius: 50%; background: transparent; border: 1px solid #0ac;}
+.switch .box ol .active { background: #0ca;}
+.switch .close { margin: 0 auto; width: 50px; height: 50px; line-height: 50px; background: #0ac; border-radius: 50%; font-size: 20px; text-align: center; color: #fff; font-weight: bold;}
 
 
 
